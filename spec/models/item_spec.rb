@@ -34,31 +34,31 @@ RSpec.describe Item, type: :model do
       it 'category_idが選択されていない状態では保存できないこと' do
         @item.category_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include('Category must be other than 0')
+        expect(@item.errors.full_messages).to include('Category を選択してください')
       end
 
       it 'ondition_idが選択されていない状態では保存できないこと' do
         @item.condition_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include('Condition must be other than 0')
+        expect(@item.errors.full_messages).to include('Condition を選択してください')
       end
 
       it 'shipping_fee_status_idが選択されていない状態では保存できないこと' do
         @item.shipping_fee_status_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include('Shipping fee status must be other than 0')
+        expect(@item.errors.full_messages).to include('Shipping fee status を選択してください')
       end
 
       it 'prefecture_idが選択されていない状態では保存できないこと' do
         @item.prefecture_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include('Prefecture must be other than 0')
+        expect(@item.errors.full_messages).to include('Prefecture を選択してください')
       end
 
       it 'shipping_duration_idが選択されていない状態では保存できないこと' do
         @item.shipping_duration_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include('Shipping duration must be other than 0')
+        expect(@item.errors.full_messages).to include('Shipping duration を選択してください')
       end
 
       it 'priceが空では保存できないこと' do
