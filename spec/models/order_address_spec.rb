@@ -6,6 +6,7 @@ RSpec.describe OrderAddress, type: :model do
       user = FactoryBot.create(:user)
       item = FactoryBot.create(:item)
       @order_address = FactoryBot.build(:order_address, item_id: item.id, user_id: user.id)
+      # sleep 0.1
     end
 
     context '購入できる時' do
@@ -28,19 +29,19 @@ RSpec.describe OrderAddress, type: :model do
       it 'postal_codeに半角ハイフンがないと購入できないこと' do
         @order_address.postal_code = '1234567'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include('Postal code is invalid. Include hyphen(-)')
+        expect(@order_address.errors.full_messages).to include('Postal code はハイフン(-)を含めて正しく入力してください')
       end
 
       it 'postal_codeが全角だと購入できないこと' do
         @order_address.postal_code = '１２３−４５６７'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include('Postal code is invalid. Include hyphen(-)')
+        expect(@order_address.errors.full_messages).to include('Postal code はハイフン(-)を含めて正しく入力してください')
       end
 
       it 'prefecture_idが選択されていないと購入できないこと' do
         @order_address.prefecture_id = 0
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Prefecture can't be blank")
+        expect(@order_address.errors.full_messages).to include("Prefecture を入力してください")
       end
 
       it 'cityが空だと購入できないこと' do
@@ -64,31 +65,31 @@ RSpec.describe OrderAddress, type: :model do
       it 'phone_numberが10桁未満だと購入できないこと' do
         @order_address.phone_number = '090123456'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include('Phone number is invalid')
+        expect(@order_address.errors.full_messages).to include('Phone number を正しく入力してください')
       end
 
       it 'phone_numberが11桁より大きいと購入できないこと' do
         @order_address.phone_number = '090123456789'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include('Phone number is invalid')
+        expect(@order_address.errors.full_messages).to include('Phone number を正しく入力してください')
       end
 
       it 'phone_numberに半角数値意外が含まれていると購入できないこと' do
         @order_address.phone_number = '090-123-456'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include('Phone number is invalid')
+        expect(@order_address.errors.full_messages).to include('Phone number を正しく入力してください')
       end
 
       it 'phone_numberが全角だと購入できないこと' do
         @order_address.phone_number = '０９０１２３４５６７８'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include('Phone number is invalid')
+        expect(@order_address.errors.full_messages).to include('Phone number を正しく入力してください')
       end
 
       it 'tokenが空だと購入できないこと' do
         @order_address.token = nil
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Token can't be blank")
+        expect(@order_address.errors.full_messages).to include("Token が正しく入力されていません")
       end
 
       it 'itemが紐付いていないと保存できないこと' do
