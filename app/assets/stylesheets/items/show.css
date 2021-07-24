@@ -25,6 +25,11 @@
   font-size: 25px;
 }
 
+.item-img-box {
+  position: relative;
+  width: 70vh;
+}
+
 .item-box-img {
   height: 50vh;
   width: 60vw;
