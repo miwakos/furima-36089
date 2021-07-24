@@ -6,11 +6,11 @@ class Item < ApplicationRecord
   belongs_to :shipping_fee_status
   belongs_to :prefecture
   belongs_to :shipping_duration
-  has_one_attached :image
+  has_many_attached :images
   has_one :order
 
   with_options presence: true do
-    validates :image
+    validates :images
     validates :name
     validates :description
     with_options numericality: { other_than: 0, message: 'を選択してください' } do

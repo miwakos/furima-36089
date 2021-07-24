@@ -90,11 +90,15 @@
 }
 
 /* /商品画像 */
-.item-img-block {
-  display: inline-block;
-  margin-left: 5px;
+.image-block {
+  margin: 10px;
+}
+.item-image {
+  display: block;
+  margin: 3px;
 }
 .item-img {
+  display: block;
   width: 33vh;
   height: 33vh;
 }
