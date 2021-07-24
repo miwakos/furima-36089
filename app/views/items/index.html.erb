@@ -121,32 +121,39 @@
 
       <% @items.each do |item| %>
         <li class='list'>
-          <%= link_to item_path(item.id) do %>
+
           <div class='item-img-content'>
-
-            <% item.images.each do |image| %>
-              <%= image_tag image, class: "item-img" %>
-              <% if item.order.present? %>
-                <div class='sold-out'>
-                  <span>Sold Out!!</span>
-                </div>
+            <ul class='slider'>
+              <% item.images.each do |image| %>
+                <li>
+                  <%= link_to item_path(item.id) do %>
+                    <%= image_tag image, class: "item-img" %>
+                    <% if item.order.present? %>
+                      <div class='sold-out'>
+                        <span>Sold Out!!</span>
+                      </div>
+                    <% end %>
+                  <% end %>
+                </li>
               <% end %>
-            <% end %>
-
+            </ul>
           </div>
-          <div class='item-info'>
-            <h3 class='item-name'>
-              <%= item.name %>
-            </h3>
-            <div class='item-price'>
-              <span><%= item.price %>円<br><%= item.shipping_fee_status.name %></span>
-              <div class='star-btn'>
-                <%= image_tag "star.png", class:"star-icon" %>
-                <span class='star-count'>0</span>
+          
+          <%= link_to item_path(item.id) do %>
+            <div class='item-info'>
+              <h3 class='item-name'>
+                <%= item.name %>
+              </h3>
+              <div class='item-price'>
+                <span><%= item.price %>円<br><%= item.shipping_fee_status.name %></span>
+                <div class='star-btn'>
+                  <%= image_tag "star.png", class:"star-icon" %>
+                  <span class='star-count'>0</span>
+                </div>
               </div>
             </div>
-          </div>
           <% end %>
+
         </li>
       <% end %>
 
@@ -176,4 +183,8 @@
   <span class='purchase-btn-text'>出品する</span>
   <%= image_tag 'icon_camera.png' , size: '185x50' ,class: "purchase-btn-icon" %>
 <% end %>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
 <%= render "shared/footer" %>

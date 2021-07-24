@@ -1,5 +1,7 @@
-if (document.getElementById('image-list')) { 
+
   document.addEventListener('DOMContentLoaded', () => {
+    // 画像投稿フォームが存在している場合のみ
+    if (document.getElementById('image-list')) { 
 
     // 選択した画像を表示する関数
     const createImageHTML = (blob) => {
@@ -52,5 +54,5 @@ if (document.getElementById('image-list')) {
 
       createImageHTML(blob)
     });
-  });
-};
+  };
+});
