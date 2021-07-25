@@ -11,14 +11,14 @@
         <% @item.images.each do |image| %>
           <li>
             <%= image_tag image, class:"item-box-img" %>
-            <% if @item.order.present? %>
-              <div class="sold-out">
-                <span>Sold Out!!</span>
-              </div>
-            <% end %>
           </li>
         <% end %>
       </ul>
+      <% if @item.order.present? %>
+        <div class="sold-out-show">
+          <span>Sold Out!!</span>
+        </div>
+      <% end %>
     </div>
 
     <div class="item-price-box">

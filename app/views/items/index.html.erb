@@ -128,15 +128,15 @@
                 <li>
                   <%= link_to item_path(item.id) do %>
                     <%= image_tag image, class: "item-img" %>
-                    <% if item.order.present? %>
-                      <div class='sold-out'>
-                        <span>Sold Out!!</span>
-                      </div>
-                    <% end %>
                   <% end %>
                 </li>
               <% end %>
             </ul>
+            <% if item.order.present? %>
+              <div class='sold-out'>
+                <span>Sold Out!!</span>
+              </div>
+            <% end %>
           </div>
           
           <%= link_to item_path(item.id) do %>
