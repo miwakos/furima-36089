@@ -7,7 +7,15 @@
     </h1>
     <%# 購入内容の表示 %>
     <div class='buy-item-info'>
-      <%= image_tag @item.image, class: 'buy-item-img' %>
+      <div class="buy-item-img-box">
+        <ul class='slider'>
+          <% @item.images.each do |image| %>
+            <li>
+              <%= image_tag image, class: 'buy-item-img' %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
       <div class='buy-item-right-content'>
         <h2 class='buy-item-text'>
           <%= @item.name %>
@@ -130,4 +138,8 @@
     <% end %>
   </div>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
 <%= render "shared/second-footer"%>
