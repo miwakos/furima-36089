@@ -16,7 +16,13 @@ class OrderAddress
 
   def save
     Order.create(item_id: item_id, user_id: user_id)
-    Address.create(postal_code: postal_code, prefecture_id: prefecture_id, city: city, address: address,
-                   phone_number: phone_number, user_id: user_id)
+    if Address.find_by(user_id: user_id).present?
+      Address.update(postal_code: postal_code, prefecture_id: prefecture_id, city: city, address: address,
+        building: building,phone_number: phone_number, user_id: user_id)
+    else
+      Address.create(postal_code: postal_code, prefecture_id: prefecture_id, city: city, address: address,
+        building: building, phone_number: phone_number, user_id: user_id)
+    end
+    
   end
 end
