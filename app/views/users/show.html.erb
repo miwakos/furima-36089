@@ -3,7 +3,7 @@
 
   <%# コンテンツ① %>
   <div class='user-contents'>
-    <h3 class='title'>ユーザー情報</h3>
+    <h3 class='title'>会員情報</h3>
     <div class="subtitle" >
     基本情報
     </div>
@@ -29,7 +29,7 @@
         <%= @user.user_birthday.year %>年 <%= @user.user_birthday.month %>月 <%= @user.user_birthday.day %>日
       </div>
       <div class="info-btn-contents">
-        <%= link_to "編集する", edit_user_registration_path(@user), class:"info-edit-btn" %>
+        <%= link_to "編集する", edit_user_path(@user), class:"info-edit-btn" %>
       </div>
     </div>
     <div class="subtitle" >

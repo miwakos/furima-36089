@@ -84,11 +84,16 @@
     <%# /カード情報の入力 %>
     
     <%# 配送先の入力 %>
-    <% if current_user.address.present? %>
-      <%= render "address_form_present", f: f %>
-    <% else %>
-      <%= render "address_form_blank", f: f %>
-    <% end %>
+    <div class='shipping-address-form'>
+      <h1 class='info-input-haedline'>
+      配送先入力
+      </h1>
+      <% if current_user.address.present? %>
+        <%= render "address_form_present", f: f %>
+      <% else %>
+        <%= render "address_form_blank", f: f %>
+      <% end %>
+    </div>
     <%# /配送先の入力 %>
 
     <div class='buy-btn'>
