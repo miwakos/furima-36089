@@ -1,0 +1,28 @@
+<%= render "shared/second-header"%>
+
+<%= form_with model: current_user.address, url: user_address_path(current_user), method: :patch, class: 'transaction-form-wrap',local: true do |f| %>
+<div class='form-wrap'>
+  <div class='form-header'>
+    <h1 class='form-header-text'>
+      配送先の変更
+    </h1>
+  </div>
+
+  <%= render 'shared/error_messages', model: f.object %>
+      
+  <%# 配送先の入力 %>
+  <% if current_user.address.present? %>
+    <%= render "orders/address_form_present", f: f %>
+  <% else %>
+    <%= render "orders/address_form_blank", f: f %>
+  <% end %>
+  <%# /配送先の入力 %>
+
+  <div class='buy-btn'>
+    <%= f.submit "変更する" ,class:"buy-red-btn", id:"button" %>
+  </div>
+  
+</div>
+<% end %>
+
+<%= render "shared/second-footer"%>
