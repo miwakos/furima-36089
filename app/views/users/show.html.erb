@@ -58,7 +58,7 @@
         登録されていません
       <% end %>
       <div class="info-btn-contents">
-        <%= link_to "編集する", edit_user_address_path(@user), class:"info-edit-btn" %>
+        <%= link_to "編集する", '#', class:"info-edit-btn" %>
       </div>
     </div>
     <div class="subtitle" >
@@ -85,15 +85,15 @@
                 <li>
                   <%= link_to item_path(item.id) do %>
                     <%= image_tag image, class: "item-img" %>
-                    <% if item.order.present? %>
-                      <div class='sold-out'>
-                        <span>Sold Out!!</span>
-                      </div>
-                    <% end %>
                   <% end %>
                 </li>
               <% end %>
             </ul>
+            <% if item.order.present? %>
+              <div class='sold-out'>
+                <span>Sold Out!!</span>
+              </div>
+            <% end %>
           </div>
           <%# //商品画像カルーセル %>
           <%= link_to item_path(item.id) do %>
